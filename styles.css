@@ -1,1 +1,66 @@
 /*  your css code here. If applicable */
+* { box-sizing: border-box; }
+body { margin: 0; font-family: serif; }
+
+.header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #f0c93a;
+  color: #fff;
+  padding: 0 40px;
+  height: 130px;
+}
+
+.title { margin: 0; }
+
+/* desktop */
+.ham { display: none; cursor: pointer; width: 40px; height: 30px; }
+.ham span {
+  display: block;
+  height: 4px;
+  background: #1f5f8b;
+  margin: 6px 0;
+  transition: 0.3s;
+}
+
+.nav-sub {
+  display: flex;
+  gap: 30px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.nav-sub a { color: #fff; text-decoration: none; font-size: 24px; }
+
+/* mobile */
+@media (max-width: 768px) {
+  .ham { display: block; }
+
+  .nav-sub {
+    display: none;
+    opacity: 0;
+    flex-direction: column;
+    gap: 0;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    width: 40%;
+    background: #7ab4e0;
+    border-bottom-left-radius: 40px;
+    padding: 10px 20px;
+    text-align: right;
+  }
+  .nav-sub li { padding: 15px 0; }
+
+  .nav-sub.show {
+    display: flex;
+    opacity: 1;
+  }
+
+  /* bars -> X */
+  .ham.open span:nth-child(1) { transform: translateY(10px) rotate(45deg); }
+  .ham.open span:nth-child(2) { opacity: 0; }
+  .ham.open span:nth-child(3) { transform: translateY(-10px) rotate(-45deg); }
+}
